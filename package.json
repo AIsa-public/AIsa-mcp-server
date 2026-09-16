@@ -1,0 +1,47 @@
+{
+  "name": "@aisa-one/mcp",
+  "version": "0.1.0",
+  "description": "Connect any MCP client to AIsa: 580+ data APIs across SEO and AI visibility, finance, social, web search, sales and agent mail, behind one endpoint and five tools.",
+  "type": "module",
+  "bin": {
+    "aisa-mcp": "bin/aisa-mcp.js"
+  },
+  "files": [
+    "bin",
+    "README.md",
+    "LICENSE"
+  ],
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {
+    "mcp-remote": "^0.14.2"
+  },
+  "license": "MIT",
+  "author": "AIsa",
+  "homepage": "https://aisa.one/mcp",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AIsa-public/AIsa-mcp-server.git"
+  },
+  "bugs": {
+    "url": "https://github.com/AIsa-public/AIsa-mcp-server/issues"
+  },
+  "keywords": [
+    "mcp",
+    "model-context-protocol",
+    "aisa",
+    "seo",
+    "geo",
+    "similarweb",
+    "apollo",
+    "twitter",
+    "finance",
+    "web-search",
+    "go-to-market",
+    "ai-agents"
+  ],
+  "publishConfig": {
+    "access": "public"
+  }
+}
