@@ -8,9 +8,14 @@
   },
   "files": [
     "bin",
+    "lib",
     "README.md",
+    "CHANGELOG.md",
     "LICENSE"
   ],
+  "scripts": {
+    "test": "node --test test/"
+  },
   "engines": {
     "node": ">=18"
   },
