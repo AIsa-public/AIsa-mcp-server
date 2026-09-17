@@ -1,0 +1,36 @@
+# The tests here touch no network, so CI is the whole verification: if this is
+# green the argument list handed to mcp-remote is the one we meant to hand it.
+#
+# Matrix from the floor declared in package.json (node >= 18) to current, since
+# the one thing a bridge cannot afford is to work on the maintainer's Node and
+# nowhere else. No build step, no devDependencies — `node --test` is in the
+# runtime — so a run is a checkout and a test.
+name: ci
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        node: ['18', '20', '22', '24']
+    name: node ${{ matrix.node }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node }}
+      # `npm ci` needs the lockfile and installs mcp-remote, which bin/ resolves
+      # at run time; `--help` exits before that resolution, but the resolve test
+      # does not.
+      - run: npm ci
+      - run: npm test
